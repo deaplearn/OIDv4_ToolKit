@@ -39,7 +39,7 @@ def show(class_name, download_dir, label_dir,total_images, index):
     img_file = os.listdir(download_dir)[index]
     current_image_path = str(os.path.join(download_dir, img_file))
     img = cv2.imread(current_image_path)
-    file_name = str(img_file.split('.')[0]) + '.txt'
+    file_name = str(img_file.split('.')[0]) + '_v.txt'
     file_path = os.path.join(label_dir, file_name)
     f = open(file_path, 'r')
 

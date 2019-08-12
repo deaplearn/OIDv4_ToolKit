@@ -117,7 +117,19 @@ def get_label(folder, dataset_dir, class_name, class_code, df_val, class_list, a
                 current_image_path = os.path.join(download_dir, image + '.jpg')
                 dataset_image = cv2.imread(current_image_path)
                 boxes = groups.get_group(image.split('.')[0])[['XMin', 'XMax', 'YMin', 'YMax']].values.tolist()
-                file_name = str(image.split('.')[0]) + '.txt'
+
+                file_name_yolo = str(image.split('.')[0]) + '.txt'
+                file_path_yolo = os.path.join(label_dir, 'yolo_label')
+                if not os.path.exists(file_path_yolo):
+                    os.makedirs(file_path_yolo)
+                file_path_yolo = os.path.join(file_path_yolo, file_name_yolo)
+                f_yolo = open(file_path_yolo, 'w')
+
+                for box in boxes:
+                    print(class_name, box[0], box[2], box[1], box[3], file=f_yolo)
+
+
+                file_name = str(image.split('.')[0]) + '_v.txt'
                 file_path = os.path.join(label_dir, file_name)
                 if os.path.isfile(file_path):
                     f = open(file_path, 'a')
