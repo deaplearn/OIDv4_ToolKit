@@ -1,4 +1,5 @@
 #! /bin/bash
+
 if [[ ! -f yolov3-tiny.weights ]]; then
 	echo 'not find yolov3-tiny.weights'
 	wget https://pjreddie.com/media/files/yolov3-tiny.weights
@@ -10,7 +11,12 @@ if [[ ! -f yolov3-tiny.cfg ]]; then
 fi
 
 # ori_darknet='../../darknet/darknet'
-ori_darknet='/Users/xzm/refine_darknet/darknet/darknet'
+
+if [[ $1 ]]; then
+	ori_darknet=$1
+else
+	ori_darknet='/Users/xzm/refine_darknet/darknet/darknet'
+fi
 
 ${ori_darknet} partial yolov3-tiny.cfg yolov3-tiny.weights yolov3-tiny.conv.15 15 
 
