@@ -126,7 +126,11 @@ def get_label(folder, dataset_dir, class_name, class_code, df_val, class_list, a
                 f_yolo = open(file_path_yolo, 'w')
 
                 for box in boxes:
-                    print(class_name, box[0], box[2], box[1], box[3], file=f_yolo)
+                    x = (box[0] + box[1])/2.0
+                    y = (box[2] + box[3])/2.0
+                    w = box[1] - box[0]
+                    h = box[3] - box[2]
+                    print(class_name, x, y, w, h, file=f_yolo)
 
 
                 file_name = str(image.split('.')[0]) + '_v.txt'

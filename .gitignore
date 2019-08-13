@@ -1,2 +1,5 @@
 __pycache__
 OID
+yolo_data	
+yolov3-tiny.weights
+yolov3-tiny.conv.15

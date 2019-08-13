@@ -1,0 +1,5 @@
+classes = 1
+train = ../yolo_data/train.list
+valid = ../yolo_data/valid.list
+names = ../classes.txt
+backup = ../yolo_data/weight/
