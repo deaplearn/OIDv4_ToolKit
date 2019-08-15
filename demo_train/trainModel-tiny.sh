@@ -20,4 +20,4 @@ fi
 
 ${ori_darknet} partial yolov3-tiny.cfg yolov3-tiny.weights yolov3-tiny.conv.15 15 
 
-${ori_darknet} detector train obj.data yolov3-tiny-cp.cfg yolov3-tiny.conv.15
+${ori_darknet} detector train obj.data yolov3-tiny-1class.cfg yolov3-tiny.conv.15
